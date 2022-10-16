@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="marist.png" />
+  <title>Proposal and Outcome</title>
+  <link rel="stylesheet" href="pastResults.css">
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html" >Home</a>
+        <a href="addNewStudent.html">Add New Student</a>
+        <a href="updateStudentDetails.html">Update Student Details</a>
+        <a href="searchStudents.html">Search Students</a>
+        <a href="studentProposals.html">Student Proposals</a>
+        <a href="pastResults.html"style="color: #ccab00;;">Past Results and Proposals</a>
+      </div>
+      
+      
+      <span style="font-size:25px;cursor:pointer;color:white;font-weight: bold;" onclick="openNav()">  <img src="marist.png" alt="Marist Icon" class="maristIcon">
+        <h4 class="admin">ADMIN</h4></span>
+        <h1 class="title">Proposals and Outcomes</h1>
+      <div class="container">
+    
+          <header>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <header style="background-color: #f3da5f;">
+              <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-chevron-circle-down" style="font-size: 20px;"></i> Proposal and Outcomes</button>
+                <div class="dropdown-info">
+                <a href="pastResults.html">Past Proposals, Votes and Outcomes</a>
+                <a href="proposalAndTotalVotes.html">Proposal and Total Votes</a>
+                </div>
+              </div>
+          </header>
+
+          <div class="table-wrapper">
+            <table class="table-users">
+              <tr>
+                <th>Proposal</th>
+                <th>Outcome</th>
+
+              </tr>
+            </table>
+          </div>
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+        
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyDlIbCKnvYyEP3ECbEgSRD3EfY2_x4FNe0",
+            authDomain: "database-4d215.firebaseapp.com",
+            projectId: "database-4d215",
+            storageBucket: "database-4d215.appspot.com",
+            messagingSenderId: "250491179919",
+            appId: "1:250491179919:web:0198d2649c23eafe9bb1fa"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.firestore();
+
+const tableUsers = document.querySelector('.table-users');
+
+let id;
+        
+function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+          }
+          
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
+
+          // Create element and render users
+const renderUser = doc => {
+  const tr = `
+    <tr data-id='${doc.id}'>
+      <td>${doc.data().Proposal}</td>
+      <td>${doc.data().Outcome}</td>
+    </tr>
+  `;
+  tableUsers.insertAdjacentHTML('beforeend', tr);
+
+
+}
+
+// Get all users
+ db.collection('pastResult').get().then(querySnapshot => {
+   querySnapshot.forEach(doc => {
+     renderUser(doc);
+   })
+});
+</script>
+    
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="marist.png" />
+  <title>Past Results</title>
+  <link rel="stylesheet" href="pastResults.css">
+</head>
+<body>
+  <body>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html" >Home</a>
+      <a href="addNewStudent.html">Add New Student</a>
+      <a href="updateStudentDetails.html">Update Student Details</a>
+      <a href="searchStudents.html">Search Students</a>
+      <a href="studentProposals.html">Student Proposals</a>
+      <a href="pastResults.html"style="color: #ccab00;;">Past Results and Proposals</a>
+    </div>
+    
+    
+    <span style="font-size:25px;cursor:pointer;color:white;font-weight: bold;" onclick="openNav()">  <img src="marist.png" alt="Marist Icon" class="maristIcon">
+      <h4 class="admin">ADMIN</h4></span>
+      <h1 class="title">Record Past Results Here</h1>
+    <div class="container">
+  
+        <header>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <header style="background-color: #f3da5f;">
+            <div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-chevron-circle-down" style="font-size: 20px;"></i> Past Proposals, Votes and Outcomes</button>
+              <div class="dropdown-info">
+              <a href="proposalAndTotalVotes.html">Proposal and Total Votes</a>
+              <a href="proposalAndOutcome.html">Proposal and Outcome</a>
+              </div>
+            </div>
+        </header>
+      <div class="table-wrapper">
+        <table class="table-users">
+          <tr>
+            <th>Proposal</th>
+            <th>Votes For</th>
+            <th>Votes Against</th>
+            <th>Total Votes</th>
+            <th>Outcome</th>
+            <th>Action</th>
+          </tr>
+        </table>
+        <button class="btn btn-add">Add Past Result</button>
+      </div>
+      <!-- Add Modal -->
+      <div class="add-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header"><h3>Add Past Result</h3></div>
+          <div class="modal-body">
+            <form class="form" autocomplete="off">
+                <input type="text" name="Proposal" placeholder="Proposal" required>
+                <input type="number" name="VotesFor" placeholder="Votes For" required>
+                <input type="number" name="VotesAgainst" placeholder="Votes Against" required>
+                <input type="number" name="TotalVotes" placeholder="Total Votes" required>
+                <input type="text" name="Outcome" placeholder="Outcome" required>
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Edit Modal -->
+      <div class="edit-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header"><h3>Edit Result</h3></div>
+          <div class="modal-body">
+            <form class="form" autocomplete="off">
+                <input type="text" name="Proposal" placeholder="Proposal">
+                <input type="number" name="VotesFor" placeholder="Votes For">
+                <input type="number" name="VotesAgainst" placeholder="Votes Against">
+                <input type="number" name="TotalVotes" placeholder="Total Votes">
+                <input type="text" name="Outcome" placeholder="Outcome">
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDlIbCKnvYyEP3ECbEgSRD3EfY2_x4FNe0",
+    authDomain: "database-4d215.firebaseapp.com",
+    projectId: "database-4d215",
+    storageBucket: "database-4d215.appspot.com",
+    messagingSenderId: "250491179919",
+    appId: "1:250491179919:web:0198d2649c23eafe9bb1fa"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+</script>
+<script src="pastResults.js"></script>
+    </body>
+</html>

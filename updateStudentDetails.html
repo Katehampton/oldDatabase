@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="marist.png" />
+    <title>Update Student Details</title>
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html" >Home</a>
+        <a href="addNewStudent.html">Add New Student</a>
+        <a href="updateStudentDetails.html" style="color: #ccab00;;">Update Student Details</a>
+        <a href="searchStudents.html">Search Students</a>
+        <a href="studentProposals.html">Student Proposals</a>
+        <a href="pastResults.html">Past Results and Proposals</a>
+      </div>
+      
+      
+      <span style="font-size:25px;cursor:pointer;color:white;font-weight: bold;" onclick="openNav()">  <img src="marist.png" alt="Marist Icon" class="maristIcon">
+        <h4 class="admin">ADMIN</h4></span>
+
+    <h1>Update Student Details</h1>
+    <h4>Update Using the Students Original ID number</h4>
+    <div id="enterDetails">
+
+        <h4>Student ID Number</h4>
+        <input id ="enterID" type="number" placeholder="Existing ID number">
+
+        <h4>First Name</h4>
+        <input id ="enterFirstName" type="text" placeholder="New First Name">
+
+        <h4>Last Name</h4>
+        <input id ="enterLastName" type="text" placeholder="New Last Name">
+
+        <h4>Whanau Group</h4>
+        <input id ="enterWhanauGroup" type="text" placeholder="New Whanau Group"> <br><br>
+
+        <button id="update" class="btn btn1">UPDATE</button> <br><br>
+        <button id="remove" class="btn btn2">REMOVE</button> 
+    </div>
+
+
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyB42gccTg_cmomznqZ5yM8fijAtP99y19g",
+    authDomain: "katedatabase-27a27.firebaseapp.com",
+    databaseURL: "https://katedatabase-27a27-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "katedatabase-27a27",
+    storageBucket: "katedatabase-27a27.appspot.com",
+    messagingSenderId: "899786987253",
+    appId: "1:899786987253:web:294de314001591d0f8d7bc"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  
+  import {getDatabase, set, get, update, remove, ref, child}
+  from "https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js";
+
+        const db = getDatabase();
+
+        var enterID= document.querySelector("#enterID");
+        var enterFirstName= document.querySelector("#enterFirstName");
+        var enterLastName= document.querySelector("#enterLastName");
+        var enterWhanauGroup= document.querySelector("#enterWhanauGroup");
+
+        var updateBtn = document.querySelector("#update");
+        var removeBtn = document.querySelector("#remove");
+
+        function UpdateData() {
+            update(ref(db, "Students/" + enterID.value), {
+                FirstName: enterFirstName.value,
+                LastName: enterLastName.value,
+                WhanauGroup: enterWhanauGroup.value,
+                ID: enterID.value, 
+            })
+            .then(()=>{
+                alert("Students details updated successfully!");
+            })
+            .catch((error)=>{
+                alert(error);
+        });
+        }
+
+        function RemoveData() {
+            remove(ref(db, "Students/" + enterID.value))
+            .then(()=>{
+                alert("Student and the details removed Successfully");
+            })
+            .catch((error)=>{
+                alert(error);
+            });
+        }
+
+        updateBtn.addEventListener('click', UpdateData);
+        removeBtn.addEventListener('click', RemoveData);
+      </script>
+
+      <script src="index.js"></script>
+</body>
+</html>

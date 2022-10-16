@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="marist.png" />
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html" style="color: #ccab00;;">Home</a>
+        <a href="addNewStudent.html">Add New Student</a>
+        <a href="updateStudentDetails.html">Update Student Details</a>
+        <a href="searchStudents.html">Search Students</a>
+        <a href="studentProposals.html">Student Proposals</a>
+        <a href="pastResults.html">Past Results and Proposals</a>
+      </div>
+      
+      
+      <span style="font-size:25px;cursor:pointer;color:white;font-weight: bold;" onclick="openNav()">  <img src="marist.png" alt="Marist Icon" class="maristIcon">
+        <h4 class="admin">ADMIN</h4></span>
+    <br>
+    <h1>Marist College Student Council Vote!</h1>
+    <button class="btn btnHome" onclick="window.location ='addNewStudent.html';" style="vertical-align:middle"><span>Add New Students</span></button> <br><br>
+    <button class="btn btnHome" onclick="window.location ='updateStudentDetails.html';" style="vertical-align:middle"><span>Update Student Details</span></button> <br><br>
+    <button class="btn btnHome" onclick="window.location ='searchStudents.html';" style="vertical-align:middle"><span>Search Students</span></button> <br><br>
+    <button class="btn btnHome" onclick="window.location ='studentProposals.html';" style="vertical-align:middle"><span>Student Proposals</span></button> <br><br>
+    <button class="btn btnHome" onclick="window.location ='pastResults.html';" style="vertical-align:middle"><span>Past Results and Proposals</span></button><br><br>
+
+    <script src="index.js"></script>
+
+    <div class="footer">
+        <p>Link to the Student Council Suggestion Form is
+            <a
+            className="profile"
+            href="PublicStudentsProposals.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        > HERE</p>
+      </div>
+
+</body>
+</html>

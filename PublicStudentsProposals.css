@@ -1,0 +1,103 @@
+body {
+    background-color: rgba(32, 142, 233, 0.411);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.title {
+    margin-top: 0%;
+    font-size: 55px;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0%;
+    font-size: 22px;
+    color: rgb(18, 34, 119);
+    text-align: center;
+}
+
+.sub1 {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 15px;
+
+}
+.maristIcon {
+    width: 60px;
+    float: left;
+}
+
+.admin {
+    color: white;
+    font-size: 17px;
+    padding-top: 20px;
+}
+.btn {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    width:12%;
+    margin-left: 44%;
+    border-radius: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  }
+  
+.btn:hover {
+    background-color: #f3da5f;
+    color: white;
+}
+
+h4 {
+    color: white;
+    text-align: center;
+}
+
+input {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 9px 10px;
+    box-align: center;
+    margin-left: 40%;
+    border-radius: 16px;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+  }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(18, 35, 119, 0.459);
+    color: white;
+    text-align: center;
+ }
+
+.maristIcon {
+    width: 60px;
+    margin-top: 0px;
+}
+.admin h2{
+    color: white;
+    font-size: 2px;
+    padding-top: 20px;
+    float: left;
+}
